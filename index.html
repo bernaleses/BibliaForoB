@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FORO · Biblia B — Plan de ejecución alternativo</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --ivory:#F5F0E8;--ivory-c:#FDFAF5;--ivory-h:#EDE8DF;--ivory-d:#E0D9CE;
+  --forest:#2A4632;--forest-m:#3D6B4F;--forest-l:#EBF2ED;--forest-t:#1E3A28;
+  --terra:#C05A34;--terra-l:#F5EAE5;--terra-t:#8B3A1E;
+  --slate:#3A5878;--slate-l:#E3EBF4;--slate-t:#263D56;
+  --amber:#B8820A;--amber-l:#FAF0D8;--amber-t:#7A5506;
+  --plum:#6B3A5E;--plum-l:#F0E8EE;--plum-t:#4A2542;
+  --ink:#1A1A18;--ink-s:#4A4A46;--ink-m:#7A7A74;--ink-g:#A8A8A2;
+  --border:#DDD8CE;--border-l:#EBE6DE;
+  --shadow:0 2px 8px rgba(58,88,120,.08),0 1px 2px rgba(58,88,120,.04);
+  --shadow-lg:0 8px 24px rgba(58,88,120,.1),0 2px 6px rgba(58,88,120,.06);
+}
+html{font-size:14px;scroll-behavior:smooth;}
+body{background:var(--ivory);color:var(--ink);font-family:'DM Sans',sans-serif;line-height:1.65;min-height:100vh;}
+
+.nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:60px;background:rgba(245,240,232,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border-l);}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;letter-spacing:.14em;color:var(--slate);text-transform:uppercase;display:flex;align-items:center;gap:10px;}
+.nav-badge{font-size:9px;font-family:'DM Sans',sans-serif;color:white;background:var(--slate);padding:2px 8px;border-radius:3px;letter-spacing:.08em;text-transform:uppercase;}
+.nav-links{display:flex;gap:2px;background:var(--ivory-h);padding:4px;border-radius:10px;flex-wrap:wrap;}
+.nav-link{padding:6px 14px;border-radius:7px;font-size:11.5px;cursor:pointer;border:none;background:transparent;color:var(--ink-m);transition:all .2s;font-family:'DM Sans',sans-serif;text-decoration:none;}
+.nav-link:hover{color:var(--ink);background:var(--ivory-c);}
+.nav-meta{font-size:11px;color:var(--ink-g);}
+
+.main{max-width:1100px;margin:0 auto;padding:40px 28px 80px;}
+.serif{font-family:'Cormorant Garamond',serif;}
+.mono{font-family:'DM Mono',monospace;}
+.section-label{font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-g);margin-bottom:14px;}
+h1.page-title{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:400;line-height:1.1;margin-bottom:8px;}
+
+.card{background:var(--ivory-c);border:1px solid var(--border-l);border-radius:16px;padding:24px;transition:box-shadow .2s,transform .2s;}
+.card:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px);}
+.card-flat{background:var(--ivory-c);border:1px solid var(--border-l);border-radius:14px;}
+.card-sm{background:var(--ivory-c);border:1px solid var(--border-l);border-radius:12px;padding:18px 20px;}
+
+.chip{display:inline-flex;align-items:center;font-size:11px;font-weight:500;padding:3px 10px;border-radius:20px;}
+.chip-forest{background:var(--forest-l);color:var(--forest-t);}
+.chip-terra{background:var(--terra-l);color:var(--terra-t);}
+.chip-slate{background:var(--slate-l);color:var(--slate-t);}
+.chip-amber{background:var(--amber-l);color:var(--amber-t);}
+.chip-plum{background:var(--plum-l);color:var(--plum-t);}
+.chip-ghost{background:var(--ivory-h);color:var(--ink-m);}
+
+.callout{background:var(--slate);color:rgba(255,255,255,.92);border-radius:14px;padding:24px 28px;}
+.callout-forest{background:var(--forest);color:rgba(255,255,255,.9);border-radius:14px;padding:22px 26px;}
+.callout-amber{background:var(--amber-l);border:1px solid var(--amber);border-radius:12px;padding:16px 20px;color:var(--amber-t);}
+.callout-terra{background:var(--terra-l);border:1px solid var(--terra);border-radius:12px;padding:16px 20px;color:var(--terra-t);}
+
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+
+.mb-6{margin-bottom:6px}.mb-8{margin-bottom:8px}.mb-12{margin-bottom:12px}
+.mb-16{margin-bottom:16px}.mb-20{margin-bottom:20px}.mb-24{margin-bottom:24px}
+.mb-32{margin-bottom:32px}.mt-8{margin-top:8px}.mt-12{margin-top:12px}
+.mt-16{margin-top:16px}.mt-24{margin-top:24px}
+.fw-500{font-weight:500}
+.flex-between{display:flex;justify-content:space-between;align-items:flex-start}
+.stack{display:flex;flex-direction:column;gap:10px}
+.stack-12{display:flex;flex-direction:column;gap:12px}
+
+.data-table{width:100%;border-collapse:collapse;}
+.data-table th{font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-g);padding:8px 14px;text-align:left;border-bottom:1px solid var(--border);}
+.data-table td{padding:10px 14px;border-bottom:1px solid var(--border-l);font-size:13px;vertical-align:top;}
+.data-table tr:last-child td{border-bottom:none;}
+.data-table tr:hover td{background:var(--ivory-h);}
+
+.sec{margin-bottom:40px;}
+.sec-num{font-family:'DM Mono',monospace;font-size:11px;color:var(--slate);font-weight:500;}
+.sec-h{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:500;margin-bottom:4px;}
+.sec-sub{font-size:12.5px;color:var(--ink-m);font-style:italic;margin-bottom:16px;}
+.p{font-size:13px;color:var(--ink-s);line-height:1.65;margin-bottom:10px;}
+.p strong{color:var(--ink);}
+
+/* Responde-a: traza cada decisión al hallazgo del análisis que la motiva */
+.responde{display:inline-flex;align-items:center;gap:5px;font-size:9.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--terra-t);background:var(--terra-l);padding:3px 9px;border-radius:4px;margin-bottom:10px;}
+
+/* Gate cards */
+.gate{border-radius:12px;padding:18px 20px;border:1.5px solid var(--border);background:var(--ivory-c);position:relative;}
+.gate-num{position:absolute;top:-12px;left:18px;background:var(--slate);color:white;font-family:'DM Mono',monospace;font-size:10px;font-weight:500;padding:3px 10px;border-radius:5px;letter-spacing:.06em;}
+.gate-when{font-size:10.5px;font-weight:600;color:var(--slate);letter-spacing:.04em;text-transform:uppercase;margin-bottom:6px;margin-top:4px;}
+.gate-q{font-size:13.5px;font-weight:500;color:var(--ink);margin-bottom:8px;line-height:1.4;}
+.gate-go{font-size:12px;color:var(--forest-t);background:var(--forest-l);border-radius:8px;padding:8px 12px;margin-bottom:6px;line-height:1.45;}
+.gate-kill{font-size:12px;color:var(--terra-t);background:var(--terra-l);border-radius:8px;padding:8px 12px;line-height:1.45;}
+
+/* Timeline */
+.tl-row{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--border-l);align-items:flex-start;}
+.tl-row:last-child{border-bottom:none;}
+.tl-when{flex-shrink:0;width:110px;font-family:'DM Mono',monospace;font-size:11px;font-weight:500;padding-top:2px;}
+.tl-body{flex:1;}
+.tl-h{font-size:13.5px;font-weight:500;margin-bottom:4px;}
+.tl-p{font-size:12.5px;color:var(--ink-s);line-height:1.55;}
+
+.vs-item{padding:8px 12px;border-radius:8px;font-size:12px;line-height:1.45;}
+.vs-bad{background:var(--terra-l);color:var(--terra-t);}
+.vs-good{background:var(--forest-l);color:var(--forest-t);}
+.vs-col{display:flex;flex-direction:column;gap:6px;}
+
+@media(max-width:760px){.g2,.g3,.g4{grid-template-columns:1fr;}.nav{padding:0 16px;}.nav-links{display:none;}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-logo serif">FORO <span class="nav-badge">Biblia B · Contra-propuesta</span></div>
+  <div class="nav-links">
+    <a class="nav-link" href="#tesis">Tesis</a>
+    <a class="nav-link" href="#inversiones">5 inversiones</a>
+    <a class="nav-link" href="#editorial">Editorial</a>
+    <a class="nav-link" href="#transaccion">Transacción</a>
+    <a class="nav-link" href="#secuencia">Secuencia</a>
+    <a class="nav-link" href="#gates">Gates</a>
+    <a class="nav-link" href="#capital">Capital</a>
+    <a class="nav-link" href="#residual">Riesgo residual</a>
+  </div>
+  <div class="nav-meta">Junio 2026 · Borrador para discusión</div>
+</nav>
+
+<div class="main">
+
+  <!-- HEADER -->
+  <div class="mb-32">
+    <p class="section-label mb-8">Plan de ejecución alternativo · Responde punto por punto al Análisis crítico (§1–§9)</p>
+    <h1 class="page-title">Foro — Biblia B</h1>
+    <p style="font-size:16px;color:var(--ink-m);font-style:italic;" class="serif">La misma ambición. Otro orden de operaciones. Cada decisión de este documento existe porque un hallazgo del análisis crítico la exige — y cada sección lleva la etiqueta del hallazgo al que responde.</p>
+  </div>
+
+  <!-- ADVERTENCIA DE LECTURA -->
+  <div class="callout-amber mb-32">
+    <p style="font-size:13px;"><strong>Qué es este documento.</strong> No es un reemplazo de la Biblia A: es la versión que ejecutaría alguien que se cree el análisis crítico al 100%. La visión final (marketplace de ciclo completo europeo) se mantiene intacta. Lo que cambia es la secuencia, el motor de supervivencia, la estructura de la capa transaccional y — sobre todo — la existencia de criterios explícitos de continuar/matar. Donde las dos biblias choquen, la discusión entre Pablo y José decide; este documento solo garantiza que esa discusión ocurra con las cartas boca arriba.</p>
+  </div>
+
+  <!-- ═══ TESIS ═══ -->
+  <div class="sec" id="tesis">
+    <p class="sec-num">§B-0</p>
+    <p class="sec-h">La tesis reordenada</p>
+    <div class="callout mb-16">
+      <p class="section-label" style="color:rgba(255,255,255,.55);margin-bottom:10px;">Definición operativa</p>
+      <p style="font-size:17px;font-family:'Cormorant Garamond',serif;line-height:1.55;">Foro construye primero la audiencia de inversores cualificados más valiosa de España — un medio editorial genuinamente independiente sobre empresas cotizadas y pre-IPO. Sobre esa audiencia vende inteligencia recurrente a las empresas que quieren entenderla. Y solo cuando ambas cosas existen, ejecuta transacciones — primero con la licencia de otro, después con la propia.</p>
+      <p style="font-size:13px;color:rgba(255,255,255,.65);margin-top:12px;font-style:italic;">Audiencia → inteligencia recurrente → transacción. En ese orden, porque cada capa financia y desriesga la siguiente. El orden inverso es PrimaryBid.</p>
+    </div>
+    <div class="g3">
+      <div class="card-sm" style="border-top:3px solid var(--slate);">
+        <p style="font-size:12px;font-weight:600;color:var(--slate);margin-bottom:6px;">1 · La audiencia es el activo</p>
+        <p style="font-size:12.5px;color:var(--ink-s);line-height:1.55;">En los años sin moat (2026–2028), lo único defendible que Foro puede construir es atención y confianza de inversores cualificados. La newsletter deja de ser "pre-lanzamiento" y pasa a ser el producto número uno de la compañía.</p>
+      </div>
+      <div class="card-sm" style="border-top:3px solid var(--forest);">
+        <p style="font-size:12px;font-weight:600;color:var(--forest);margin-bottom:6px;">2 · Lo recurrente sobrevive a la sequía</p>
+        <p style="font-size:12.5px;color:var(--ink-s);line-height:1.55;">PrimaryBid murió porque el 100% de su revenue dependía del número de operaciones del mercado. El motor de Foro debe ser revenue que se cobra <em>entre</em> operaciones: suscripción de inteligencia. La transacción es upside, nunca supervivencia.</p>
+      </div>
+      <div class="card-sm" style="border-top:3px solid var(--amber);">
+        <p style="font-size:12px;font-weight:600;color:var(--amber);margin-bottom:6px;">3 · La licencia se alquila antes de comprarse</p>
+        <p style="font-size:12.5px;color:var(--ink-s);line-height:1.55;">La capa transaccional llega en 2027 vía acuerdo con una ESI existente, no en 2028-29 vía licencia propia. La ESI propia se solicita solo cuando el volumen demuestra que merece la pena pagar su coste y su plazo.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ LAS 5 INVERSIONES ═══ -->
+  <div class="sec" id="inversiones">
+    <p class="sec-num">§B-1</p>
+    <p class="sec-h">Las cinco inversiones de orden vs la Biblia A</p>
+    <p class="sec-sub">Mismo destino, ruta distinta. Cada fila responde a un hallazgo concreto del análisis.</p>
+    <table class="data-table card-flat" style="overflow:hidden;">
+      <thead><tr><th style="width:24%;">Dimensión</th><th style="width:30%;">Biblia A</th><th style="width:30%;">Biblia B</th><th>Responde a</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="fw-500">Primer producto</td>
+          <td style="color:var(--ink-s);">Serie audiovisual de €120k vendida a un primer cliente en S11-12</td>
+          <td style="color:var(--forest-t);font-weight:500;">Medio editorial independiente (newsletter + pódcast/vídeo ligero) que nadie paga por aparecer</td>
+          <td><span class="chip chip-terra">§2 Conflicto editorial · §3 Ciclo de venta</span></td>
+        </tr>
+        <tr>
+          <td class="fw-500">Motor de revenue</td>
+          <td style="color:var(--ink-s);">Producción (agencia) primero, SaaS en 2028, transacción después</td>
+          <td style="color:var(--forest-t);font-weight:500;">Inteligencia recurrente desde el primer cliente (suscripción anual); la producción premium es opcional y a coste radicalmente menor</td>
+          <td><span class="chip chip-terra">§4 Agencia consume caja · §1 Ciclicidad</span></td>
+        </tr>
+        <tr>
+          <td class="fw-500">Capa transaccional</td>
+          <td style="color:var(--ink-s);">Licencia ESI propia (con tres fechas contradictorias)</td>
+          <td style="color:var(--forest-t);font-weight:500;">Acuerdo de sub-colocación con ESI/broker existente en 2027; licencia propia solo tras ≥3 operaciones ejecutadas</td>
+          <td><span class="chip chip-terra">§4 Aritmética ESI · §9 Condición 3</span></td>
+        </tr>
+        <tr>
+          <td class="fw-500">Plataforma tecnológica</td>
+          <td style="color:var(--ink-s);">MVP de 8 módulos en 12 semanas con CTO + devs externos</td>
+          <td style="color:var(--forest-t);font-weight:500;">Stack ensamblado (newsletter + vídeo + analytics + CRM sobre herramientas existentes) hasta que el revenue justifique construir; CTO cuando haya algo que solo se pueda construir</td>
+          <td><span class="chip chip-terra">§6 Plan técnico dimensionado por deseo</span></td>
+        </tr>
+        <tr>
+          <td class="fw-500">Gestión del plan</td>
+          <td style="color:var(--ink-s);">Gantt de 78 semanas sin holgura ni criterios de salida</td>
+          <td style="color:var(--forest-t);font-weight:500;">Seis gates de decisión con umbrales numéricos y consecuencias escritas antes de llegar a ellos</td>
+          <td><span class="chip chip-terra">§3 Calendario sin holgura · §9 Juicio</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══ EDITORIAL ═══ -->
+  <div class="sec" id="editorial">
+    <p class="sec-num">§B-2</p>
+    <p class="sec-h">La resolución del conflicto editorial: dos productos, un muro</p>
+    <span class="responde">⚖ Responde a §2 — la grieta central del modelo de contenido</span>
+    <p class="p">El análisis identificó la contradicción: Acquired es creíble porque no cobra a quien cubre, y Foro planeaba cobrar a quien cubre llamándolo independiente. La Biblia B no intenta disimular esa tensión — la elimina separando el contenido en dos productos con reglas distintas, nombres distintos y un muro explícito entre ambos.</p>
+    <div class="g2 mb-12">
+      <div class="card" style="border-left:4px solid var(--slate);">
+        <div class="flex-between mb-8"><p class="fw-500" style="font-size:15px;">Cobertura editorial</p><span class="chip chip-slate">Independiente · Gratuita</span></div>
+        <p class="p"><strong>Foro elige a quién cubre. Nadie paga por aparecer. Nadie revisa el guion.</strong> Newsletter semanal y episodios sobre cotizadas y pre-IPO españolas seleccionadas por interés periodístico — incluidas empresas que no son ni serán clientes, e incluidas tesis incómodas. Solo información pública (Hechos Relevantes, cuentas, folletos). Es el producto que construye la audiencia y la única fuente legítima de credibilidad.</p>
+        <p style="font-size:11.5px;color:var(--slate);font-weight:500;">Estándar publicado en la web desde el día uno: qué controla la empresa cubierta (nada), qué se publica aunque no le guste (todo lo relevante), y cómo se declara cualquier relación comercial existente.</p>
+      </div>
+      <div class="card" style="border-left:4px solid var(--amber);">
+        <div class="flex-between mb-8"><p class="fw-500" style="font-size:15px;">Producción contratada</p><span class="chip chip-amber">Pagada · Etiquetada</span></div>
+        <p class="p"><strong>La empresa encarga, la empresa paga, y el contenido lo dice en grande.</strong> Series de presentación al inversor con calidad editorial, etiquetadas de forma inequívoca como contenido producido para el emisor ("Producido por Foro para [empresa]"). Vive en URL de Foro con behavioral tracking — la regla 1 de la Biblia A se mantiene íntegra. La etiqueta honesta no devalúa el producto: lo hace legalmente más sólido (publicidad financiera transparente, sin zona gris de research encubierto) y comercialmente más vendible, porque el IR sabe exactamente qué compra.</p>
+        <p style="font-size:11.5px;color:var(--amber-t);font-weight:500;">Coste rediseñado: formato pódcast-vídeo de estudio, €8–20k por serie corta, no €120k. Premium cinematográfico solo cuando una operación concreta lo justifique y lo pague.</p>
+      </div>
+    </div>
+    <div class="callout-forest">
+      <p style="font-size:13px;">El efecto compuesto: la cobertura independiente genera la audiencia y la confianza; la audiencia hace valiosa la producción contratada y la inteligencia; y la separación explícita es simultáneamente la defensa regulatoria (CNMV ve publicidad declarada, no research disfrazado), la defensa de marca y la respuesta al inversor escéptico. Lo que en la Biblia A era la grieta central, aquí es la arquitectura.</p>
+    </div>
+  </div>
+
+  <!-- ═══ MODELO DE INGRESOS ═══ -->
+  <div class="sec">
+    <p class="sec-num">§B-3</p>
+    <p class="sec-h">Modelo de ingresos resecuenciado</p>
+    <span class="responde">⚖ Responde a §4 — recurrente antes que transaccional; la agencia deja de financiar el plan</span>
+    <table class="data-table card-flat" style="overflow:hidden;">
+      <thead><tr><th>#</th><th>Fuente</th><th>Desde</th><th>Descripción</th><th>Naturaleza</th></tr></thead>
+      <tbody>
+        <tr><td class="mono" style="color:var(--slate);">01</td><td class="fw-500">Foro Intelligence (suscripción)</td><td><span class="chip chip-slate">2027 T1</span></td><td style="color:var(--ink-s);">Suscripción anual para cotizadas y pre-IPO: quién de la audiencia cualificada sigue tu sector y tu empresa, behavioral data de la cobertura y de tu contenido contratado, benchmark, alertas. Precio de entrada €8–12k/año — dentro del presupuesto real de un IR español, diseñado para renovarse, no para impresionar.</td><td><span class="chip chip-forest">Recurrente</span></td></tr>
+        <tr><td class="mono" style="color:var(--amber);">02</td><td class="fw-500">Producción contratada</td><td><span class="chip chip-amber">2027</span></td><td style="color:var(--ink-s);">Series etiquetadas para emisores. Margen sano por formato ligero. Mecides se trata como upside no presupuestado hasta confirmación fiscal por escrito.</td><td><span class="chip chip-ghost">Por proyecto</span></td></tr>
+        <tr><td class="mono" style="color:var(--plum);">03</td><td class="fw-500">Patrocinio de comunidad</td><td><span class="chip chip-plum">2027</span></td><td style="color:var(--ink-s);">Eventos y webinars patrocinados (gestoras, despachos, proveedores del ecosistema — nunca el emisor cubierto esa semana). Monetiza la audiencia sin venderla. La regla "sin publicidad display" se mantiene.</td><td><span class="chip chip-ghost">Por evento</span></td></tr>
+        <tr><td class="mono" style="color:var(--forest);">04</td><td class="fw-500">Transacción vía ESI partner</td><td><span class="chip chip-forest">2027 T3-T4</span></td><td style="color:var(--ink-s);">Tramo cualificado en ampliaciones de clientes, ejecutado bajo la licencia del partner. Foro cobra por la inteligencia y la demanda agregada; el partner cobra por la ejecución. Revenue menor por operación que con licencia propia — a cambio de existir tres años antes.</td><td><span class="chip chip-ghost">Por operación</span></td></tr>
+        <tr><td class="mono" style="color:var(--terra);">05</td><td class="fw-500">Colocación con ESI propia</td><td><span class="chip chip-terra">2029-30</span></td><td style="color:var(--ink-s);">Solo si el Gate 5 lo aprueba. Una fecha, coherente con los 18–24 meses reales, escrita una sola vez en un solo documento.</td><td><span class="chip chip-ghost">Por operación</span></td></tr>
+      </tbody>
+    </table>
+    <div class="callout-amber mt-12">
+      <p style="font-size:12.5px;"><strong>Regla financiera de la Biblia B:</strong> en ningún trimestre el plan de caja puede depender de revenue transaccional para sobrevivir. Si el recurrente + producción no cubren el burn ajustado, se recorta el burn — no se reza por una operación. Es la lección de PrimaryBid convertida en política contable.</p>
+    </div>
+  </div>
+
+  <!-- ═══ TRANSACCIÓN ═══ -->
+  <div class="sec" id="transaccion">
+    <p class="sec-num">§B-4</p>
+    <p class="sec-h">La capa transaccional sin esperar a la CNMV</p>
+    <span class="responde">⚖ Responde a §4 (tres fechas para la ESI) y §7 (RetailBook: el modelo viable vive dentro del sindicato)</span>
+    <p class="p">El análisis señaló dos cosas que esta sección une: que la ESI propia no llega antes de 2028-29 hagáis lo que hagáis, y que RetailBook demostró que el modelo de ejecución que sobrevive es el que opera <em>con</em> los intermediarios licenciados, no contra ellos. La Biblia B convierte ambas en una sola decisión: <strong>elegir un partner regulado en 2026 y casarse con él para 2027-2028.</strong></p>
+    <div class="g3 mb-12">
+      <div class="card-sm">
+        <p style="font-size:11px;font-weight:600;color:var(--slate);margin-bottom:6px;letter-spacing:.04em;">QUIÉN</p>
+        <p style="font-size:12.5px;color:var(--ink-s);line-height:1.55;">Una ESI o agencia de valores española de tamaño medio, o un broker con apetito por el segmento mid-cap, sin canal propio de inversor cualificado digital. José tiene la red exacta para identificar tres candidatos y elegir uno. El partner aporta licencia, custodia y ejecución; Foro aporta demanda cualificada agregada e inteligencia de pre-cierre que el partner no puede generar.</p>
+      </div>
+      <div class="card-sm">
+        <p style="font-size:11px;font-weight:600;color:var(--slate);margin-bottom:6px;letter-spacing:.04em;">QUÉ CAMBIA EN EL PITCH A BANCOS</p>
+        <p style="font-size:12.5px;color:var(--ink-s);line-height:1.55;">Desaparece el caballo de Troya. La Biblia A guardaba un secreto ("aliados hasta que no lo son") que cualquier banquero competente huele en la segunda reunión. La Biblia B ofrece algo verificable: Foro es la capa de demanda cualificada e inteligencia del sindicato, con un partner regulado dentro del sistema. La ambición de largo plazo no necesita ocultarse porque la estructura no amenaza a nadie hasta que el volumen hable.</p>
+      </div>
+      <div class="card-sm">
+        <p style="font-size:11px;font-weight:600;color:var(--slate);margin-bottom:6px;letter-spacing:.04em;">QUÉ SE PIERDE Y SE ACEPTA</p>
+        <p style="font-size:12.5px;color:var(--ink-s);line-height:1.55;">Margen por operación (el partner cobra su parte) y control total del flujo. Es el precio de existir en 2027 en lugar de en 2029, y de aprender la operativa transaccional con la licencia — y la responsabilidad regulatoria — de otro. Riesgo nuevo a gestionar por contrato: dependencia del partner y cláusulas de no-competencia recíprocas con vencimiento.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SECUENCIA ═══ -->
+  <div class="sec" id="secuencia">
+    <p class="sec-num">§B-5</p>
+    <p class="sec-h">Secuencia 2026–2030 — con holgura y en pasado verificable</p>
+    <span class="responde">⚖ Responde a §3 — calendario sin holgura, hitos en cascada, S11-12 ya comprometida</span>
+    <p class="p">Cada bloque se enuncia como lo que tiene que ser verdad <em>al final</em> del periodo, no como lista de tareas. Los plazos asumen ciclos de venta de 6–9 meses, no de 12 semanas.</p>
+    <div class="card-flat" style="padding:8px 24px;">
+      <div class="tl-row">
+        <div class="tl-when" style="color:var(--slate);">2026 · S2</div>
+        <div class="tl-body">
+          <p class="tl-h">El medio existe y publica sin fallar</p>
+          <p class="tl-p">Newsletter semanal viva con estándar editorial publicado. 20–30 entregas antes de fin de año. Experiment 0 reconvertido: las reuniones con IRs ya no venden una serie de €120k — validan el precio de Foro Intelligence y buscan 3 LOIs. Selección del candidato a ESI partner (longlist → 3 conversaciones). Consulta regulatoria de scoping respondiendo al escenario específico: cobertura independiente + producción etiquetada + Early Look vía partner.</p>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-when" style="color:var(--slate);">2027 · S1</div>
+        <div class="tl-body">
+          <p class="tl-h">Primeros clientes de suscripción y primera producción etiquetada</p>
+          <p class="tl-p">2–4 cotizadas pagando Foro Intelligence (€8–12k). Primera serie contratada en formato ligero, en URL de Foro, con tracking. 800–1.500 suscriptores cualificados verificados en la newsletter. Term sheet con el ESI partner. Stack ensamblado, cero desarrollo a medida salvo el tracking propio.</p>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-when" style="color:var(--slate);">2027 · S2</div>
+        <div class="tl-body">
+          <p class="tl-h">Primera operación con tramo Foro — bajo licencia del partner</p>
+          <p class="tl-p">Una ampliación de capital de un cliente de suscripción donde Foro agrega demanda cualificada y entrega inteligencia de pre-cierre al sindicato, ejecutando vía partner. Case study con métricas reales (no ilustrativas). Raise seed con datos: audiencia, renovaciones, una operación cerrada. Aquí — y solo aquí — se contrata CTO, porque ya hay algo que solo se puede construir: la plataforma de inteligencia sobre datos propios reales.</p>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-when" style="color:var(--forest);">2028</div>
+        <div class="tl-body">
+          <p class="tl-h">Escala del recurrente y decisión ESI</p>
+          <p class="tl-p">10–20 suscripciones, 2–4 operaciones vía partner, plataforma propia v1 (dashboard IR + perfilado, construida sobre comportamiento real acumulado, no sobre especificación a priori). Gate 5: con ≥3 operaciones ejecutadas y unit economics conocidos, decidir si la ESI propia merece sus 18–24 meses y su coste — o si el modelo partner escala mejor. Primer cliente pre-IPO con la fase larga de comunidad.</p>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-when" style="color:var(--forest);">2029–2030</div>
+        <div class="tl-body">
+          <p class="tl-h">Marketplace y expansión — la Biblia A recupera el mando</p>
+          <p class="tl-p">Si los gates se han pasado: ESI propia operativa (si Gate 5 dijo sí), Portugal con el mismo playbook medio-primero, masa crítica real medida en liquidez transaccional y no en listas. A partir de aquí, los unlocks 2 y 3 de la Biblia A (secundario pre-IPO, data licensing) se evalúan con cinco años de datos reales detrás. La visión de €1B no se ha tocado — se le ha puesto suelo debajo.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ GATES ═══ -->
+  <div class="sec" id="gates">
+    <p class="sec-num">§B-6</p>
+    <p class="sec-h">Los seis gates — el elemento que la Biblia A no tiene</p>
+    <span class="responde">⚖ Responde a §9 — las condiciones del juicio final, convertidas en mecanismo</span>
+    <p class="p">Un gate es una pregunta con umbral numérico, fecha y consecuencia escrita <em>antes</em> de llegar a él. Su función no es matar el proyecto: es impedir que el proyecto se mienta a sí mismo desplazando hitos en silencio. Se revisan en una reunión formal de co-fundadores, se documenta la decisión en Notion, y la opción "kill" de un gate nunca significa cerrar Foro — significa cambiar de hipótesis con la caja aún viva.</p>
+    <div class="g2" style="gap:24px 16px;margin-top:24px;">
+      <div class="gate">
+        <span class="gate-num">GATE 1 · DIC 2026</span>
+        <p class="gate-when">Audiencia</p>
+        <p class="gate-q">¿La cobertura independiente tiene tracción real?</p>
+        <p class="gate-go"><strong>GO:</strong> ≥800 suscriptores cualificados verificados (no totales: cualificados), apertura sostenida >40%, y al menos 5 IRs/CFOs que citan la newsletter sin que se la mencionéis.</p>
+        <p class="gate-kill"><strong>PIVOT:</strong> Si no — el problema es el formato o el posicionamiento, no el mercado. Iterar el medio 2 trimestres más antes de gastar un euro en producto.</p>
+      </div>
+      <div class="gate">
+        <span class="gate-num">GATE 2 · DIC 2026</span>
+        <p class="gate-when">Demanda empresa</p>
+        <p class="gate-q">¿Alguien paga de verdad por la inteligencia?</p>
+        <p class="gate-go"><strong>GO:</strong> ≥3 LOIs o contratos de Foro Intelligence a precio de tarifa, sin descuentos fundacionales encubiertos.</p>
+        <p class="gate-kill"><strong>PIVOT:</strong> Con audiencia pero sin compradores corporativos, el modelo es B2C/media-first (suscripción premium del inversor) — un negocio distinto y digno, decidido a tiempo.</p>
+      </div>
+      <div class="gate">
+        <span class="gate-num">GATE 3 · MAR 2027</span>
+        <p class="gate-when">Partner regulado</p>
+        <p class="gate-q">¿Existe un ESI partner firmado?</p>
+        <p class="gate-go"><strong>GO:</strong> Acuerdo marco firmado con reparto de fees, exclusividades acotadas y vencimiento definido.</p>
+        <p class="gate-kill"><strong>RETRASO ASUMIDO:</strong> Sin partner, la capa transaccional se mueve oficialmente a 2029 (post-ESI propia) y el plan de caja se reescribe ese mes — no se arrastra la ficción.</p>
+      </div>
+      <div class="gate">
+        <span class="gate-num">GATE 4 · DIC 2027</span>
+        <p class="gate-when">Primera operación</p>
+        <p class="gate-q">¿La inteligencia de Foro movió una operación real?</p>
+        <p class="gate-go"><strong>GO:</strong> ≥1 operación ejecutada vía partner donde el tramo originado por Foro sea medible y el emisor/sindicato lo reconozca por escrito en el case study.</p>
+        <p class="gate-kill"><strong>RECORTE:</strong> Sin operación, Foro sigue siendo viable como media + intelligence — se congela toda inversión transaccional y se optimiza el recurrente hasta que el mercado abra.</p>
+      </div>
+      <div class="gate">
+        <span class="gate-num">GATE 5 · MED 2028</span>
+        <p class="gate-when">Licencia propia</p>
+        <p class="gate-q">¿La ESI propia merece 18–24 meses y su coste?</p>
+        <p class="gate-go"><strong>GO:</strong> ≥3 operaciones vía partner, unit economics conocidos, y el margen cedido al partner > coste anualizado de tener ESI propia. Entonces se solicita, con fecha realista de 2030.</p>
+        <p class="gate-kill"><strong>NO-GO LEGÍTIMO:</strong> Si el modelo partner escala bien, no tener ESI propia es una decisión, no un fracaso. RetailBook opera exactamente así.</p>
+      </div>
+      <div class="gate">
+        <span class="gate-num">GATE 6 · CONTINUO</span>
+        <p class="gate-when">Regla de caja</p>
+        <p class="gate-q">¿Sobrevive el plan sin revenue transaccional?</p>
+        <p class="gate-go"><strong>SIEMPRE:</strong> Runway ≥12 meses contando solo recurrente + producción contratada. La transacción es aceleración, nunca oxígeno.</p>
+        <p class="gate-kill"><strong>SI SE ROMPE:</strong> Recorte de burn en 30 días. Sin excepciones narrativas ("la operación está a punto de cerrar" es exactamente la frase que precede a los colapsos).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ CAPITAL Y EQUIPO ═══ -->
+  <div class="sec" id="capital">
+    <p class="sec-num">§B-7</p>
+    <p class="sec-h">Capital y equipo — dimensionados a la secuencia, no a la ambición</p>
+    <span class="responde">⚖ Responde a §6 — capital justo, equipo de dos, José como single point of failure</span>
+    <div class="g2 mb-12">
+      <div class="card">
+        <p class="fw-500 mb-8">Capital por tramos, no un raise por fe</p>
+        <p class="p"><strong>Tramo 0 (2026):</strong> €80–150k de fundadores/FFF. Cubre el medio, el Experiment 0 reconvertido y la consulta legal. El formato ligero hace esto posible: la Biblia B no necesita €900k de producción para existir.</p>
+        <p class="p"><strong>Tramo 1 (pre-seed, post-Gates 1-2):</strong> €400–700k con LOIs y audiencia como evidencia. Cubre voz editorial contratada, producción etiquetada, primer año de Intelligence.</p>
+        <p class="p"><strong>Tramo 2 (seed, post-Gate 4):</strong> €1,5–2,5M con una operación cerrada y renovaciones demostradas. Aquí entra el CTO y la plataforma propia. El raise grande llega cuando compra escala, no cuando compra esperanza — y la dilución pre-evidencia se minimiza, que era el objetivo declarado del modelo financiero.</p>
+      </div>
+      <div class="card">
+        <p class="fw-500 mb-8">Equipo: desconcentrar a José, adelantar lo editorial, retrasar lo técnico</p>
+        <p class="p"><strong>Primera contratación (2026-27): la voz editorial</strong>, no el CTO. Es la inversa exacta de la Biblia A, y es deliberada: el activo de los dos primeros años es el medio, y la regla "marca sobre personas" exige que la newsletter no dependa de las noches de Pablo y José. Perfil ya definido (periodismo narrativo / divulgación), equity temprano, IP de Foro desde el día uno.</p>
+        <p class="p"><strong>Mitigación del SPOF de José:</strong> cada relación de su red entra al CRM con contexto suficiente para que otro pueda continuarla; el ESI partner institucionaliza el acceso al sistema regulado para que no dependa de llamadas personales; y las reuniones clave se hacen a dos siempre que sea posible.</p>
+        <p class="p"><strong>CTO en Tramo 2</strong>, cuando exista comportamiento real que modelar. Construir la plataforma antes de tener usuarios fue, según la propia ficha de la Biblia A, el error de orden de Q4. La Biblia B se toma esa lección en serio también para sí misma.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ QUÉ SE MANTIENE ═══ -->
+  <div class="sec">
+    <p class="sec-num">§B-8</p>
+    <p class="sec-h">Lo que la Biblia A ya tenía bien — y la B conserva intacto</p>
+    <div class="g2">
+      <div class="vs-col">
+        <div class="vs-item vs-good"><strong>Regla 1 · URL propia.</strong> Todo el contenido — independiente y contratado — vive en dominio Foro con tracking. Sin URL no hay datos. Intocable.</div>
+        <div class="vs-item vs-good"><strong>El diagnóstico del problema.</strong> Las tres perspectivas (empresa, inversor, banco) son correctas y se mantienen palabra por palabra.</div>
+        <div class="vs-item vs-good"><strong>Empezar por ampliaciones mid-cap, no por IPOs.</strong> Decisión validada por el propio análisis: ciclos más cortos, IR existente, más frecuencia.</div>
+      </div>
+      <div class="vs-col">
+        <div class="vs-item vs-good"><strong>La fase pre-IPO como LTV máximo.</strong> Correcta — y en la Biblia B además es la cobertura más diferencial, porque nadie más cuenta esas historias.</div>
+        <div class="vs-item vs-good"><strong>Marca sobre personas, sin publicidad display, IP en Foro.</strong> Las tres reglas se conservan; la B solo las adelanta en el calendario.</div>
+        <div class="vs-item vs-good"><strong>La visión de ciclo completo a 2030+.</strong> No se recorta la ambición: se le construye el camino que el análisis demostró que faltaba.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ RIESGO RESIDUAL ═══ -->
+  <div class="sec" id="residual">
+    <p class="sec-num">§B-9</p>
+    <p class="sec-h">Lo que esta Biblia tampoco resuelve — honestidad simétrica</p>
+    <p class="sec-sub">Un plan que se presenta sin sus propios fallos merece el mismo escrutinio que se le aplicó a la Biblia A.</p>
+    <div class="g2">
+      <div class="card-sm" style="border-left:3px solid var(--terra);">
+        <p style="font-size:12px;font-weight:500;color:var(--terra);margin-bottom:6px;">La ciclicidad del ECM español sigue ahí</p>
+        <p style="font-size:12.5px;color:var(--ink-s);line-height:1.55;">La Biblia B amortigua la sequía (recurrente + Gate 6), pero no la elimina: si España no produce operaciones en 2027-28, la capa transaccional no despega por bien ejecutado que esté todo lo demás. Es el riesgo de mercado puro que ningún diseño interno compensa.</p>
+      </div>
+      <div class="card-sm" style="border-left:3px solid var(--terra);">
+        <p style="font-size:12px;font-weight:500;color:var(--terra);margin-bottom:6px;">El medio puede no monetizar a tiempo</p>
+        <p style="font-size:12.5px;color:var(--ink-s);line-height:1.55;">Media-first es más lento en revenue que vender una serie de €120k si esa venta saliera bien. La B apuesta a que la venta de la A no saldría al precio y plazo previstos — pero si un cliente ancla apareciera mañana dispuesto a pagar la serie premium, la A tendría razón en ese punto y habría que tomarlo sin dogmatismo.</p>
+      </div>
+      <div class="card-sm" style="border-left:3px solid var(--terra);">
+        <p style="font-size:12px;font-weight:500;color:var(--terra);margin-bottom:6px;">El ESI partner es un riesgo de contraparte nuevo</p>
+        <p style="font-size:12.5px;color:var(--ink-s);line-height:1.55;">Dependencia de su apetito, su compliance y su estrategia. Puede aprender el modelo y replicarlo, o ser adquirido. Mitigable por contrato (no-competencia acotada, datos siempre de Foro) — no eliminable. Es el precio de los tres años ganados.</p>
+      </div>
+      <div class="card-sm" style="border-left:3px solid var(--terra);">
+        <p style="font-size:12px;font-weight:500;color:var(--terra);margin-bottom:6px;">Quartr e InvestorHub no esperan</p>
+        <p style="font-size:12.5px;color:var(--ink-s);line-height:1.55;">La secuencia más lenta da más tiempo a que un player con capital entre en España. La apuesta de la B: la cobertura en español con profundidad local es más difícil de replicar desde Estocolmo o Sídney que un dashboard. Es una apuesta razonada, no una certeza.</p>
+      </div>
+    </div>
+    <div class="callout mt-16">
+      <p class="section-label" style="color:rgba(255,255,255,.55);margin-bottom:8px;">La frase honesta de la Biblia B</p>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:17px;line-height:1.55;">La Biblia A describe el negocio que Foro quiere ser en 2030. La Biblia B describe cómo seguir vivo y con derecho a construirlo. La diferencia entre ambas no es de ambición sino de orden: audiencia antes que producto, recurrente antes que transaccional, licencia prestada antes que propia, y gates escritos antes de necesitarlos. Si dentro de doce meses los gates 1 y 2 están en verde, las dos biblias convergen solas. Si están en rojo, la B habrá evitado descubrirlo con la caja vacía.</p>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
