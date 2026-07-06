@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FORO · Biblia B — Plan de ejecución alternativo</title>
+<title>FORO · Biblia B v2 — Plan de ejecución alternativo</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -82,6 +82,8 @@ h1.page-title{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:
 
 /* Responde-a: traza cada decisión al hallazgo del análisis que la motiva */
 .responde{display:inline-flex;align-items:center;gap:5px;font-size:9.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--terra-t);background:var(--terra-l);padding:3px 9px;border-radius:4px;margin-bottom:10px;}
+/* Nuevo en v2: marca las secciones añadidas tras el challenge de julio */
+.nuevo-v2{display:inline-flex;align-items:center;gap:5px;font-size:9.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--forest-t);background:var(--forest-l);padding:3px 9px;border-radius:4px;margin-bottom:10px;margin-left:6px;}
 
 /* Gate cards */
 .gate{border-radius:12px;padding:18px 20px;border:1.5px solid var(--border);background:var(--ivory-c);position:relative;}
@@ -104,25 +106,39 @@ h1.page-title{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:
 .vs-good{background:var(--forest-l);color:var(--forest-t);}
 .vs-col{display:flex;flex-direction:column;gap:6px;}
 
-@media(max-width:760px){.g2,.g3,.g4{grid-template-columns:1fr;}.nav{padding:0 16px;}.nav-links{display:none;}}
+/* Roadmap H2 2026 */
+.mes{border:1.5px solid var(--border);border-radius:14px;background:var(--ivory-c);overflow:hidden;margin-bottom:22px;}
+.mes-head{display:flex;justify-content:space-between;align-items:baseline;padding:14px 20px;background:var(--slate-l);border-bottom:1px solid var(--border-l);}
+.mes-nombre{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;color:var(--slate-t);}
+.mes-tema{font-size:11px;color:var(--slate);font-weight:500;letter-spacing:.04em;text-transform:uppercase;}
+.mes-hito{padding:12px 20px;background:var(--forest-l);border-top:1px solid var(--border-l);font-size:12px;color:var(--forest-t);line-height:1.5;}
+.mes-hito strong{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.04em;}
+.hitos-linea{background:var(--forest-t);color:rgba(255,255,255,.92);border-radius:14px;padding:22px 26px;font-family:'DM Mono',monospace;font-size:12px;line-height:2.1;overflow-x:auto;white-space:pre;}
+.kpi-panel{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;}
+.kpi{background:var(--ivory-c);border:1px solid var(--border-l);border-radius:10px;padding:12px 14px;text-align:center;}
+.kpi-n{font-family:'DM Mono',monospace;font-size:11px;color:var(--slate);font-weight:500;margin-bottom:4px;}
+.kpi-t{font-size:11.5px;color:var(--ink-s);line-height:1.4;}
+@media(max-width:760px){.g2,.g3,.g4,.kpi-panel{grid-template-columns:1fr;}.nav{padding:0 16px;}.nav-links{display:none;}}
 </style>
 </head>
 <body>
 
 <nav class="nav">
-  <div class="nav-logo serif">FORO <span class="nav-badge">Biblia B · Contra-propuesta</span></div>
+  <div class="nav-logo serif">FORO <span class="nav-badge">Biblia B · v2</span></div>
   <div class="nav-links">
     <a class="nav-link" href="#tesis">Tesis</a>
     <a class="nav-link" href="#inversiones">5 inversiones</a>
     <a class="nav-link" href="#editorial">Editorial</a>
+    <a class="nav-link" href="#audiencia">Audiencia verificada</a>
     <a class="nav-link" href="#transaccion">Transacción</a>
     <a class="nav-link" href="#secuencia">Secuencia</a>
     <a class="nav-link" href="#gates">Gates</a>
     <a class="nav-link" href="#capital">Capital</a>
     <a class="nav-link" href="#residual">Riesgo residual</a>
     <a class="nav-link" href="#finanzas">Plan financiero</a>
+    <a class="nav-link" href="#roadmap" style="background:var(--forest-l);color:var(--forest-t);font-weight:500;">Roadmap H2 2026</a>
   </div>
-  <div class="nav-meta">Junio 2026 · Borrador para discusión</div>
+  <div class="nav-meta">Julio 2026 · v2</div>
 </nav>
 
 <div class="main">
@@ -137,6 +153,7 @@ h1.page-title{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:
   <!-- ADVERTENCIA DE LECTURA -->
   <div class="callout-amber mb-32">
     <p style="font-size:13px;"><strong>Qué es este documento.</strong> No es un reemplazo de la Biblia A: es la versión que ejecutaría alguien que se cree el análisis crítico al 100%. La visión final (marketplace de ciclo completo europeo) se mantiene intacta. Lo que cambia es la secuencia, el motor de supervivencia, la estructura de la capa transaccional y — sobre todo — la existencia de criterios explícitos de continuar/matar. Donde las dos biblias choquen, la discusión entre Pablo y José decide; este documento solo garantiza que esa discusión ocurra con las cartas boca arriba.</p>
+    <p style="font-size:12px;margin-top:8px;"><strong>Novedades v2 (julio 2026).</strong> Incorpora el veredicto del challenge a las tres fases: la Fase 1 se redefine como <em>audiencia verificada con densidad de señal creciente</em> (no "newsletter + comunidad") — nueva sección §B-2.1 — y se añade el roadmap operativo del 5 de julio al 31 de diciembre de 2026 (§B-11), la guía de acción hacia los Gates 1 y 2.</p>
   </div>
 
   <!-- ═══ TESIS ═══ -->
@@ -145,13 +162,13 @@ h1.page-title{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:
     <p class="sec-h">La tesis reordenada</p>
     <div class="callout mb-16">
       <p class="section-label" style="color:rgba(255,255,255,.55);margin-bottom:10px;">Definición operativa</p>
-      <p style="font-size:17px;font-family:'Cormorant Garamond',serif;line-height:1.55;">Foro construye primero la audiencia de inversores cualificados más valiosa de España — un medio editorial genuinamente independiente sobre empresas cotizadas y pre-IPO. Sobre esa audiencia vende inteligencia recurrente a las empresas que quieren entenderla. Y solo cuando ambas cosas existen, ejecuta transacciones — primero con la licencia de otro, después con la propia.</p>
-      <p style="font-size:13px;color:rgba(255,255,255,.65);margin-top:12px;font-style:italic;">Audiencia → inteligencia recurrente → transacción. En ese orden, porque cada capa financia y desriesga la siguiente. El orden inverso es PrimaryBid.</p>
+      <p style="font-size:17px;font-family:'Cormorant Garamond',serif;line-height:1.55;">Foro construye primero la audiencia de inversores cualificados más valiosa de España — un medio editorial genuinamente independiente sobre empresas cotizadas y pre-IPO, con cada lector relevante <em>verificado</em>. Sobre esa audiencia vende inteligencia recurrente a las empresas que quieren entenderla. Y solo cuando ambas cosas existen, ejecuta transacciones — primero con la licencia de otro, después con la propia.</p>
+      <p style="font-size:13px;color:rgba(255,255,255,.65);margin-top:12px;font-style:italic;">Audiencia verificada → inteligencia recurrente → transacción. En ese orden, porque cada capa financia y desriesga la siguiente. El orden inverso es PrimaryBid.</p>
     </div>
     <div class="g3">
       <div class="card-sm" style="border-top:3px solid var(--slate);">
-        <p style="font-size:12px;font-weight:600;color:var(--slate);margin-bottom:6px;">1 · La audiencia es el activo</p>
-        <p style="font-size:12.5px;color:var(--ink-s);line-height:1.55;">En los años sin moat (2026–2028), lo único defendible que Foro puede construir es atención y confianza de inversores cualificados. La newsletter deja de ser "pre-lanzamiento" y pasa a ser el producto número uno de la compañía.</p>
+        <p style="font-size:12px;font-weight:600;color:var(--slate);margin-bottom:6px;">1 · La audiencia verificada es el activo</p>
+        <p style="font-size:12.5px;color:var(--ink-s);line-height:1.55;">En los años sin moat (2026–2028), lo único defendible que Foro puede construir es atención y confianza de inversores cualificados <strong>identificados con certeza</strong>. El contenido es el imán; la verificación es el activo. La newsletter deja de ser "pre-lanzamiento" y pasa a ser el producto número uno — pero el KPI número uno no son suscriptores: son cualificados verificados (§B-2.1).</p>
       </div>
       <div class="card-sm" style="border-top:3px solid var(--forest);">
         <p style="font-size:12px;font-weight:600;color:var(--forest);margin-bottom:6px;">2 · Lo recurrente sobrevive a la sequía</p>
@@ -175,7 +192,7 @@ h1.page-title{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:
         <tr>
           <td class="fw-500">Primer producto</td>
           <td style="color:var(--ink-s);">Serie audiovisual de €120k vendida a un primer cliente en S11-12</td>
-          <td style="color:var(--forest-t);font-weight:500;">Medio editorial independiente (newsletter + pódcast/vídeo ligero) que nadie paga por aparecer</td>
+          <td style="color:var(--forest-t);font-weight:500;">Medio editorial independiente + audiencia verificada de inversores cualificados. Nadie paga por aparecer; el directorio verificado es el activo, el contenido es el imán</td>
           <td><span class="chip chip-terra">§2 Conflicto editorial · §3 Ciclo de venta</span></td>
         </tr>
         <tr>
@@ -215,7 +232,7 @@ h1.page-title{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:
     <div class="g2 mb-12">
       <div class="card" style="border-left:4px solid var(--slate);">
         <div class="flex-between mb-8"><p class="fw-500" style="font-size:15px;">Cobertura editorial</p><span class="chip chip-slate">Independiente · Gratuita</span></div>
-        <p class="p"><strong>Foro elige a quién cubre. Nadie paga por aparecer. Nadie revisa el guion.</strong> Newsletter semanal y episodios sobre cotizadas y pre-IPO españolas seleccionadas por interés periodístico — incluidas empresas que no son ni serán clientes, e incluidas tesis incómodas. Solo información pública (Hechos Relevantes, cuentas, folletos). Es el producto que construye la audiencia y la única fuente legítima de credibilidad.</p>
+        <p class="p"><strong>Foro elige a quién cubre. Nadie paga por aparecer. Nadie revisa el guion.</strong> Newsletter y episodios sobre cotizadas y pre-IPO españolas seleccionadas por interés periodístico — incluidas empresas que no son ni serán clientes, e incluidas tesis incómodas. Solo información pública (Hechos Relevantes, cuentas, folletos). Es el producto que construye la audiencia y la única fuente legítima de credibilidad.</p>
         <p style="font-size:11.5px;color:var(--slate);font-weight:500;">Estándar publicado en la web desde el día uno: qué controla la empresa cubierta (nada), qué se publica aunque no le guste (todo lo relevante), y cómo se declara cualquier relación comercial existente.</p>
       </div>
       <div class="card" style="border-left:4px solid var(--amber);">
@@ -229,6 +246,39 @@ h1.page-title{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:
     </div>
   </div>
 
+  <!-- ═══ AUDIENCIA VERIFICADA — NUEVO v2 ═══ -->
+  <div class="sec" id="audiencia">
+    <p class="sec-num">§B-2.1</p>
+    <p class="sec-h">Audiencia verificada — la redefinición de la Fase 1</p>
+    <span class="responde">⚖ Responde al veredicto del challenge de julio</span><span class="nuevo-v2">✚ Nuevo en v2</span>
+    <div class="callout mb-16">
+      <p class="section-label" style="color:rgba(255,255,255,.55);margin-bottom:8px;">El veredicto que motiva esta sección</p>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:16px;line-height:1.55;">"La idea es buena si la Fase 1 se redefine como audiencia verificada con densidad de señal creciente. Tal como está escrita ('newsletter + comunidad'), es ejecutable pero medirías lo que no importa."</p>
+    </div>
+
+    <p class="p"><strong>La lección de Say Technologies, leída bien.</strong> Say no valía $140M por su contenido ni por su comunidad: valía porque <em>verificaba la propiedad de acciones</em> vía integración con brokers y sabía con certeza quién era accionista real de cada empresa. El equivalente en Foro es saber con certeza quién es inversor cualificado real. Una lista de suscriptores no es un activo; un directorio verificado de inversores cualificados es exactamente lo que Foro Intelligence necesita para existir y lo que ningún competidor puede copiar copiando el formato de la newsletter.</p>
+    <p class="p"><strong>Por qué "comunidad" era la palabra equivocada.</strong> Un family office, un HNWI o un gestor independiente no participa en foros ni comenta posts. Consume contenido curado, acepta introducciones selectivas y valora el acceso — pre-IPO, management, información temprana. Diseñar la Fase 1 como comunidad social significaría medir engagement de perfil retail disfrazado y atraer al lector equivocado. La interacción que este perfil sí acepta tiene formato de evento: webinars y encuentros selectivos con IRs de empresas ya cubiertas. Eso es lo que la Biblia B llama "comunidad" a partir de v2 — convocatoria, no conversación.</p>
+
+    <div class="g3 mb-12 mt-16">
+      <div class="card-sm" style="border-top:3px solid var(--slate);">
+        <p style="font-size:11px;font-weight:600;color:var(--slate);margin-bottom:6px;letter-spacing:.04em;">MECANISMO DE VERIFICACIÓN v1</p>
+        <p style="font-size:12.5px;color:var(--ink-s);line-height:1.55;">Dos niveles de membresía. <strong>Suscriptor</strong>: email, acceso a la cobertura. <strong>Cualificado verificado</strong>: autocertificación bajo criterios MiFID II (patrimonio, experiencia, profesión) + validación ligera (LinkedIn o entidad declarada). Sin fricción bancaria en 2026 — la certificación formal vía ESI llega con el partner en 2027. El formulario tarda dos minutos; el dato que produce vale el negocio entero.</p>
+      </div>
+      <div class="card-sm" style="border-top:3px solid var(--forest);">
+        <p style="font-size:11px;font-weight:600;color:var(--forest);margin-bottom:6px;letter-spacing:.04em;">EL INCENTIVO A VERIFICARSE</p>
+        <p style="font-size:12.5px;color:var(--ink-s);line-height:1.55;">Nadie rellena un formulario sin motivo. El nivel verificado da acceso a: las tres señales en versión extendida, prioridad de plaza en los webinars con IRs, y — a futuro — el "early look" de operaciones. El perk crece con las fases: en 2027 verificarse será la puerta a la capa transaccional. La verificación no es un peaje: es la membresía.</p>
+      </div>
+      <div class="card-sm" style="border-top:3px solid var(--amber);">
+        <p style="font-size:11px;font-weight:600;color:var(--amber);margin-bottom:6px;letter-spacing:.04em;">DENSIDAD DE SEÑAL CRECIENTE</p>
+        <p style="font-size:12.5px;color:var(--ink-s);line-height:1.55;">La cadencia quincenal del ensayo largo cubre ~12 empresas/año — diferencial editorial, pero densidad de datos insuficiente para vender Intelligence. Solución sin tocar el producto estrella: una <strong>señal semanal ligera</strong> (briefing corto de 5 señales del mercado español) que multiplica los puntos de contacto y por tanto los datos de comportamiento por suscriptor. Más señal por lector = mejor producto Intelligence con la misma audiencia.</p>
+      </div>
+    </div>
+
+    <div class="callout-amber">
+      <p style="font-size:12.5px;"><strong>Consecuencia sobre la métrica.</strong> A partir de v2, el KPI de la Fase 1 no son suscriptores totales ni aperturas brutas: es el número de <strong>cualificados verificados</strong> y su comportamiento. El Gate 1 ya lo medía así ("no totales: cualificados") — esta sección define por fin el mecanismo que lo hace medible. Sin verificación, el Gate 1 era una cifra inauditable; con ella, es un activo contable.</p>
+    </div>
+  </div>
+
   <!-- ═══ MODELO DE INGRESOS ═══ -->
   <div class="sec">
     <p class="sec-num">§B-3</p>
@@ -237,7 +287,7 @@ h1.page-title{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:
     <table class="data-table card-flat" style="overflow:hidden;">
       <thead><tr><th>#</th><th>Fuente</th><th>Desde</th><th>Descripción</th><th>Naturaleza</th></tr></thead>
       <tbody>
-        <tr><td class="mono" style="color:var(--slate);">01</td><td class="fw-500">Foro Intelligence (suscripción)</td><td><span class="chip chip-slate">2027 T1</span></td><td style="color:var(--ink-s);">Suscripción anual para cotizadas y pre-IPO: quién de la audiencia cualificada sigue tu sector y tu empresa, behavioral data de la cobertura y de tu contenido contratado, benchmark, alertas. Precio de entrada €8–12k/año — dentro del presupuesto real de un IR español, diseñado para renovarse, no para impresionar.</td><td><span class="chip chip-forest">Recurrente</span></td></tr>
+        <tr><td class="mono" style="color:var(--slate);">01</td><td class="fw-500">Foro Intelligence (suscripción)</td><td><span class="chip chip-slate">2027 T1</span></td><td style="color:var(--ink-s);">Suscripción anual para cotizadas y pre-IPO: quién de la audiencia cualificada verificada sigue tu sector y tu empresa, behavioral data de la cobertura y de tu contenido contratado, benchmark, alertas. Precio de entrada €8–12k/año — dentro del presupuesto real de un IR español, diseñado para renovarse, no para impresionar.</td><td><span class="chip chip-forest">Recurrente</span></td></tr>
         <tr><td class="mono" style="color:var(--amber);">02</td><td class="fw-500">Producción contratada</td><td><span class="chip chip-amber">2027</span></td><td style="color:var(--ink-s);">Series etiquetadas para emisores. Margen sano por formato ligero. Mecides se trata como upside no presupuestado hasta confirmación fiscal por escrito.</td><td><span class="chip chip-ghost">Por proyecto</span></td></tr>
         <tr><td class="mono" style="color:var(--plum);">03</td><td class="fw-500">Patrocinio de comunidad</td><td><span class="chip chip-plum">2027</span></td><td style="color:var(--ink-s);">Eventos y webinars patrocinados (gestoras, despachos, proveedores del ecosistema — nunca el emisor cubierto esa semana). Monetiza la audiencia sin venderla. La regla "sin publicidad display" se mantiene.</td><td><span class="chip chip-ghost">Por evento</span></td></tr>
         <tr><td class="mono" style="color:var(--forest);">04</td><td class="fw-500">Transacción vía ESI partner</td><td><span class="chip chip-forest">2027 T3-T4</span></td><td style="color:var(--ink-s);">Tramo cualificado en ampliaciones de clientes, ejecutado bajo la licencia del partner. Foro cobra por la inteligencia y la demanda agregada; el partner cobra por la ejecución. Revenue menor por operación que con licencia propia — a cambio de existir tres años antes.</td><td><span class="chip chip-ghost">Por operación</span></td></tr>
@@ -254,7 +304,7 @@ h1.page-title{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:
     <p class="sec-num">§B-4</p>
     <p class="sec-h">La capa transaccional sin esperar a la CNMV</p>
     <span class="responde">⚖ Responde a §4 (tres fechas para la ESI) y §7 (RetailBook: el modelo viable vive dentro del sindicato)</span>
-    <p class="p">El análisis señaló dos cosas que esta sección une: que la ESI propia no llega antes de 2028-29 hagáis lo que hagáis, y que RetailBook demostró que el modelo de ejecución que sobrevive es el que opera <em>con</em> los intermediarios licenciados, no contra ellos. La Biblia B convierte ambas en una sola decisión: <strong>elegir un partner regulado en 2026 y casarse con él para 2027-2028.</strong></p>
+    <p class="p">El análisis señaló dos cosas que esta sección une: que la ESI propia no llega antes de 2028-29 hagáis lo que hagáis, y que RetailBook demostró que el modelo de ejecución que sobrevive es el que opera <em>con</em> los intermediarios licenciados, no contra ellos. La Biblia B convierte ambas en una sola decisión: <strong>elegir un partner regulado en 2026 y casarse con él para 2027-2028.</strong> Nota de scope de la v2: la cuña transaccional de Foro es una sola — tramo cualificado en ampliaciones mid-cap vía partner (el modelo RetailBook). Otros referentes de marketplace (secundario pre-IPO tipo Deale) son unlocks de los 2030s y no entran en ningún pitch ni documento de esta fase.</p>
     <div class="g3 mb-12">
       <div class="card-sm">
         <p style="font-size:11px;font-weight:600;color:var(--slate);margin-bottom:6px;letter-spacing:.04em;">QUIÉN</p>
@@ -276,20 +326,20 @@ h1.page-title{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:
     <p class="sec-num">§B-5</p>
     <p class="sec-h">Secuencia 2026–2030 — con holgura y en pasado verificable</p>
     <span class="responde">⚖ Responde a §3 — calendario sin holgura, hitos en cascada, S11-12 ya comprometida</span>
-    <p class="p">Cada bloque se enuncia como lo que tiene que ser verdad <em>al final</em> del periodo, no como lista de tareas. Los plazos asumen ciclos de venta de 6–9 meses, no de 12 semanas.</p>
+    <p class="p">Cada bloque se enuncia como lo que tiene que ser verdad <em>al final</em> del periodo, no como lista de tareas. Los plazos asumen ciclos de venta de 6–9 meses, no de 12 semanas. El detalle operativo del segundo semestre de 2026 vive en el §B-11.</p>
     <div class="card-flat" style="padding:8px 24px;">
       <div class="tl-row">
         <div class="tl-when" style="color:var(--slate);">2026 · S2</div>
         <div class="tl-body">
-          <p class="tl-h">El medio existe y publica sin fallar</p>
-          <p class="tl-p">Newsletter semanal viva con estándar editorial publicado. 20–30 entregas antes de fin de año. Experiment 0 reconvertido: las reuniones con IRs ya no venden una serie de €120k — validan el precio de Foro Intelligence y buscan 3 LOIs. Selección del candidato a ESI partner (longlist → 3 conversaciones). Consulta regulatoria de scoping respondiendo al escenario específico: cobertura independiente + producción etiquetada + Early Look vía partner.</p>
+          <p class="tl-h">El medio existe, publica sin fallar y su audiencia está verificada</p>
+          <p class="tl-p">Newsletter quincenal viva con estándar editorial publicado + señal semanal ligera desde otoño. Mecanismo de verificación operativo y línea base medida. Experiment 0 reconvertido: las reuniones con IRs ya no venden una serie de €120k — validan el precio de Foro Intelligence y buscan 3 LOIs. Selección del candidato a ESI partner (longlist → 3 conversaciones). Consulta regulatoria de scoping respondiendo al escenario específico: cobertura independiente + producción etiquetada + Early Look vía partner. → Detalle completo en §B-11.</p>
         </div>
       </div>
       <div class="tl-row">
         <div class="tl-when" style="color:var(--slate);">2027 · S1</div>
         <div class="tl-body">
           <p class="tl-h">Primeros clientes de suscripción y primera producción etiquetada</p>
-          <p class="tl-p">2–4 cotizadas pagando Foro Intelligence (€8–12k). Primera serie contratada en formato ligero, en URL de Foro, con tracking. 800–1.500 suscriptores cualificados verificados en la newsletter. Term sheet con el ESI partner. Stack ensamblado, cero desarrollo a medida salvo el tracking propio.</p>
+          <p class="tl-p">2–4 cotizadas pagando Foro Intelligence (€8–12k). Primera serie contratada en formato ligero, en URL de Foro, con tracking. 800–1.500 suscriptores cualificados verificados. Term sheet con el ESI partner. Stack ensamblado, cero desarrollo a medida salvo el tracking propio.</p>
         </div>
       </div>
       <div class="tl-row">
@@ -327,7 +377,7 @@ h1.page-title{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:
         <span class="gate-num">GATE 1 · DIC 2026</span>
         <p class="gate-when">Audiencia</p>
         <p class="gate-q">¿La cobertura independiente tiene tracción real?</p>
-        <p class="gate-go"><strong>GO:</strong> ≥800 suscriptores cualificados verificados (no totales: cualificados), apertura sostenida >40%, y al menos 5 IRs/CFOs que citan la newsletter sin que se la mencionéis.</p>
+        <p class="gate-go"><strong>GO:</strong> ≥800 suscriptores cualificados verificados según el mecanismo de §B-2.1 (no totales: cualificados), apertura sostenida &gt;40%, y al menos 5 IRs/CFOs que citan la newsletter sin que se la mencionéis.</p>
         <p class="gate-kill"><strong>PIVOT:</strong> Si no — el problema es el formato o el posicionamiento, no el mercado. Iterar el medio 2 trimestres más antes de gastar un euro en producto.</p>
       </div>
       <div class="gate">
@@ -355,7 +405,7 @@ h1.page-title{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:
         <span class="gate-num">GATE 5 · MED 2028</span>
         <p class="gate-when">Licencia propia</p>
         <p class="gate-q">¿La ESI propia merece 18–24 meses y su coste?</p>
-        <p class="gate-go"><strong>GO:</strong> ≥3 operaciones vía partner, unit economics conocidos, y el margen cedido al partner > coste anualizado de tener ESI propia. Entonces se solicita, con fecha realista de 2030.</p>
+        <p class="gate-go"><strong>GO:</strong> ≥3 operaciones vía partner, unit economics conocidos, y el margen cedido al partner &gt; coste anualizado de tener ESI propia. Entonces se solicita, con fecha realista de 2030.</p>
         <p class="gate-kill"><strong>NO-GO LEGÍTIMO:</strong> Si el modelo partner escala bien, no tener ESI propia es una decisión, no un fracaso. RetailBook opera exactamente así.</p>
       </div>
       <div class="gate">
@@ -453,7 +503,7 @@ h1.page-title{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:
         <tr>
           <td class="mono fw-500">2026</td>
           <td class="mono">€5–15k</td>
-          <td style="color:var(--ink-s);">Patrocinios piloto. El medio no monetiza aún — está construyendo el activo (audiencia).</td>
+          <td style="color:var(--ink-s);">Patrocinios piloto. El medio no monetiza aún — está construyendo el activo (audiencia verificada).</td>
           <td class="mono">€90–130k</td>
           <td class="mono" style="color:var(--terra);">–€85/–120k</td>
           <td style="color:var(--ink-s);"><span class="chip chip-slate">Tramo 0</span> €80–150k FFF · Gates 1-2 en diciembre</td>
@@ -550,6 +600,131 @@ h1.page-title{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:
 
     <div class="callout-amber mt-16">
       <p style="font-size:12.5px;"><strong>Nota metodológica.</strong> Todos los rangos de esta sección son asunciones de trabajo construidas desde la secuencia §B-5, no salidas del modelo de siete hojas. El siguiente paso natural es trasladarlas a una octava hoja del Excel (escenarios Base y Pesimista de la Biblia B en paralelo a los actuales) con cada asunción en celda azul editable, para que la comparación A vs B se haga con la misma herramienta y los mismos criterios con los que se construyó el modelo original.</p>
+    </div>
+  </div>
+
+  <!-- ═══ ROADMAP H2 2026 — NUEVO v2 ═══ -->
+  <div class="sec" id="roadmap">
+    <p class="sec-num">§B-11</p>
+    <p class="sec-h">Roadmap operativo · 5 julio – 31 diciembre 2026</p>
+    <span class="responde">⚖ Ejecuta la Fase 1 redefinida (§B-2.1) hacia los Gates 1 y 2</span><span class="nuevo-v2">✚ Nuevo en v2</span>
+    <p class="p"><strong>La lógica del semestre.</strong> Quedan ~26 semanas y dos gates el mismo mes. El Gate 2 (3 LOIs de Intelligence) manda sobre el calendario: con ciclos de venta B2B de 3–6 meses y conversión típica del 20-30% de reunión a LOI, las conversaciones tienen que empezar en septiembre como muy tarde — lo que exige un artefacto de producto en agosto — lo que exige la infraestructura en julio. Todo lo de julio existe para hacer posible septiembre. En paralelo, el Gate 1 (800 verificados) se gestiona por trayectoria: objetivos intermedios mensuales con contingencia pre-escrita, no una cifra que se descubre en diciembre.</p>
+
+    <!-- JULIO -->
+    <div class="mes">
+      <div class="mes-head"><span class="mes-nombre">Julio</span><span class="mes-tema">Infraestructura del activo · S28–S31</span></div>
+      <table class="data-table">
+        <thead><tr><th style="width:38%;">Acción</th><th>Por qué es crítica</th></tr></thead>
+        <tbody>
+          <tr><td class="fw-500">Decidir y migrar la plataforma de newsletter (beehiiv vs Ghost — la granularidad de behavioral data inclina a beehiiv)</td><td style="color:var(--ink-s);">Cada semana sin datos a nivel de sección y click es moat perdido para siempre. Es prerequisito de todo lo demás: verificación, demo de Intelligence, Gate 1.</td></tr>
+          <tr><td class="fw-500">Definir e implementar el mecanismo de verificación v1 (§B-2.1): autocertificación MiFID II + validación ligera, dos niveles</td><td style="color:var(--ink-s);">Sin esto el Gate 1 es inmedible y Foro Intelligence no tiene nada defendible que vender. Es la lección Say Technologies convertida en tarea de dos semanas.</td></tr>
+          <tr><td class="fw-500">Publicar el estándar editorial (firewall) en la landing</td><td style="color:var(--ink-s);">Defensa regulatoria y de marca; cuesta un día. Las conversaciones de Intelligence de septiembre lo necesitan publicado, no prometido.</td></tr>
+          <tr><td class="fw-500">Definir el entregable Foro Intelligence v1: one-pager de producto + mock de informe con estructura real</td><td style="color:var(--ink-s);">Gate 2 exige LOIs a precio de tarifa (€8–12k). Nadie firma un LOI sobre una idea; se firma sobre un entregable con nombre, frecuencia y formato.</td></tr>
+          <tr><td class="fw-500">Research de la edición HBX Group (publica ~15 agosto)</td><td style="color:var(--ink-s);">Ya comprometida en teasers; fallar la cadencia en verano rompe la credibilidad del medio justo antes de los gates.</td></tr>
+        </tbody>
+      </table>
+      <div class="mes-hito"><strong>HITO 31 JUL →</strong> Plataforma migrada con tracking activo · verificación v1 en producción · firewall publicado · one-pager Intelligence terminado.</div>
+    </div>
+
+    <!-- AGOSTO -->
+    <div class="mes">
+      <div class="mes-head"><span class="mes-nombre">Agosto</span><span class="mes-tema">El artefacto de demo · S32–S35</span></div>
+      <table class="data-table">
+        <thead><tr><th style="width:38%;">Acción</th><th>Por qué</th></tr></thead>
+        <tbody>
+          <tr><td class="fw-500">Publicar la edición HBX (~15 ago)</td><td style="color:var(--ink-s);">Cadencia intacta, y es la empresa con mejor gancho para el perfil institucional (IPO 2025 reciente).</td></tr>
+          <tr><td class="fw-500">Lanzar la verificación sobre la lista actual, con el perk definido (señales extendidas + prioridad en webinars)</td><td style="color:var(--ink-s);">Establece la línea base del Gate 1. Hay que saber en agosto cuántos cualificados reales existen para calibrar el esfuerzo de captación de otoño.</td></tr>
+          <tr><td class="fw-500">Construir el informe demo de Intelligence con datos reales de una edición publicada (Grenergy o CAF): quién leyó, qué secciones, qué perfil</td><td style="color:var(--ink-s);">Es el documento que cierra reuniones en septiembre. Un IR que ve datos de comportamiento reales sobre una empresa comparable entiende el producto en cinco minutos.</td></tr>
+          <tr><td class="fw-500">Cerrar el calendario editorial sept–dic (TSK, Cirsa, Indra, Grifols, Puig, Oryzon mapeados a fechas de resultados)</td><td style="color:var(--ink-s);">Elimina decisiones en el trimestre más cargado y permite pre-avisar a los IRs de las empresas cubiertas — touchpoint comercial legítimo post-publicación.</td></tr>
+          <tr><td class="fw-500">José: longlist de 10-15 targets Intelligence desde el CRM de 139 cotizadas (mid-caps con IR activo y operación probable en 2027)</td><td style="color:var(--ink-s);">Las reuniones de septiembre se agendan en agosto, no en septiembre.</td></tr>
+        </tbody>
+      </table>
+      <div class="mes-hito"><strong>HITO 31 AGO →</strong> HBX publicada · línea base de verificados conocida · informe demo terminado · 10+ reuniones agendadas para sept-oct.</div>
+    </div>
+
+    <!-- SEPTIEMBRE -->
+    <div class="mes">
+      <div class="mes-head"><span class="mes-nombre">Septiembre</span><span class="mes-tema">Arranca la venta · S36–S39</span></div>
+      <table class="data-table">
+        <thead><tr><th style="width:38%;">Acción</th><th>Por qué</th></tr></thead>
+        <tbody>
+          <tr><td class="fw-500">Reuniones Intelligence: objetivo 10 entre sept y oct (José abre, Pablo hace la demo)</td><td style="color:var(--ink-s);">Matemática del Gate 2: con conversión del 20-30%, hacen falta 10-12 reuniones serias para 3 LOIs en diciembre. Empezar en octubre ya es tarde.</td></tr>
+          <tr><td class="fw-500">Push de crecimiento: clips LinkedIn por edición (Opus Clip), mecánica de referido ligada al perk de verificado, reenvío activo desde la red de IRs de José</td><td style="color:var(--ink-s);">El Gate 1 se gestiona por trayectoria: el crecimiento semanal requerido se calcula con la línea base de agosto, no se improvisa en noviembre.</td></tr>
+          <tr><td class="fw-500">Lanzar la señal semanal ligera (§B-2.1) en paralelo a las dos ediciones quincenales del mes</td><td style="color:var(--ink-s);">Multiplica los puntos de contacto y la densidad de behavioral data por suscriptor — el insumo directo del producto Intelligence que se está vendiendo ese mismo mes.</td></tr>
+          <tr><td class="fw-500">Publicar los blogs priorizados 7, 10 y 12</td><td style="color:var(--ink-s);">Autoridad + SEO + material que los IRs reenvían internamente. Alimenta los dos gates a la vez.</td></tr>
+          <tr><td class="fw-500">Longlist de ESI partner (solo research, sin conversaciones)</td><td style="color:var(--ink-s);">Gate 3 es marzo 2027; identificar 3 candidatos ahora es barato y evita empezar de cero en enero.</td></tr>
+        </tbody>
+      </table>
+      <div class="mes-hito"><strong>HITO 30 SEP →</strong> ≥10 reuniones celebradas o agendadas · ~40% del objetivo de verificados (≈320) · señal semanal viva · blogs 7/10/12 publicados.</div>
+    </div>
+
+    <!-- OCTUBRE -->
+    <div class="mes">
+      <div class="mes-head"><span class="mes-nombre">Octubre</span><span class="mes-tema">Auditoría de trayectoria · S40–S44</span></div>
+      <table class="data-table">
+        <thead><tr><th style="width:38%;">Acción</th><th>Por qué</th></tr></thead>
+        <tbody>
+          <tr><td class="fw-500">Auditoría de mitad de camino del Gate 1 (31 oct): ¿≥60% del objetivo (≈480 verificados)? Si no, contingencia pre-escrita: webinar abierto con IR de empresa cubierta, partnership con IESE / asociaciones de family offices, campaña de referidos agresiva</td><td style="color:var(--ink-s);">La función de los gates es impedir el autoengaño. La contingencia se escribe antes de necesitarla — filosofía Biblia B aplicada al trimestre.</td></tr>
+          <tr><td class="fw-500">Primer LOI de Foro Intelligence cerrado</td><td style="color:var(--ink-s);">Un LOI en octubre valida precio y entregable; los dos siguientes se negocian sobre ese precedente, no desde cero.</td></tr>
+          <tr><td class="fw-500">Cerrar un patrocinio piloto: webinar patrocinado por gestora o despacho (nunca el emisor cubierto esa quincena)</td><td style="color:var(--ink-s);">Son los €5-15k de revenue 2026 del plan financiero (§B-10) y valida la fuente 03 sin tocar el firewall.</td></tr>
+          <tr><td class="fw-500">Dos ediciones según calendario editorial</td><td style="color:var(--ink-s);">La cadencia es la credibilidad del medio: no se negocia ni en el mes más cargado.</td></tr>
+        </tbody>
+      </table>
+      <div class="mes-hito"><strong>HITO 31 OCT →</strong> ≥480 verificados o contingencia activada · LOI #1 firmado · patrocinio piloto en negociación o cerrado.</div>
+    </div>
+
+    <!-- NOVIEMBRE -->
+    <div class="mes">
+      <div class="mes-head"><span class="mes-nombre">Noviembre</span><span class="mes-tema">Convocatoria y cierre de pipeline · S45–S48</span></div>
+      <table class="data-table">
+        <thead><tr><th style="width:38%;">Acción</th><th>Por qué</th></tr></thead>
+        <tbody>
+          <tr><td class="fw-500">Primer evento/webinar Foro con el IR de una empresa ya cubierta (post-publicación, firewall intacto)</td><td style="color:var(--ink-s);">Demuestra poder de convocatoria — el argumento más potente en las negociaciones de LOI ("estos inversores vienen cuando llamamos") y el formato de "comunidad" que sí funciona con el perfil cualificado (§B-2.1).</td></tr>
+          <tr><td class="fw-500">LOIs #2 y #3 en negociación activa</td><td style="color:var(--ink-s);">El precedente de octubre fija precio y formato; noviembre es replicación, no invención.</td></tr>
+          <tr><td class="fw-500">Esqueleto de materiales del Tramo 1 (pre-seed): narrativa + métricas que se están generando</td><td style="color:var(--ink-s);">Si los gates salen verdes en diciembre, el raise arranca en enero con materiales listos — no se pierde un trimestre montándolos.</td></tr>
+          <tr><td class="fw-500">Dos ediciones según calendario editorial</td><td style="color:var(--ink-s);">—</td></tr>
+        </tbody>
+      </table>
+      <div class="mes-hito"><strong>HITO 30 NOV →</strong> ≥650 verificados · LOIs #2-3 en negociación · primer evento celebrado con asistencia medida.</div>
+    </div>
+
+    <!-- DICIEMBRE -->
+    <div class="mes">
+      <div class="mes-head"><span class="mes-nombre">Diciembre</span><span class="mes-tema">Gates · S49–S52</span></div>
+      <table class="data-table">
+        <thead><tr><th style="width:38%;">Acción</th><th>Por qué</th></tr></thead>
+        <tbody>
+          <tr><td class="fw-500">Edición final del calendario + edición recap del año (las 10+ empresas cubiertas, las señales que acertaron)</td><td style="color:var(--ink-s);">La recap es material de marketing para el raise y para los LOIs pendientes: demuestra el track record editorial en un solo documento.</td></tr>
+          <tr><td class="fw-500">Reunión formal de gates con José (~20 dic): Gate 1 (≥800 verificados, apertura &gt;40%, ≥5 IRs citando la newsletter espontáneamente) y Gate 2 (≥3 LOIs a tarifa). Decisión documentada en Notion</td><td style="color:var(--ink-s);">Es el mecanismo central de la Biblia B: la decisión de 2027 (arrancar pre-seed y term sheet ESI vs. iterar dos trimestres más) se toma con números y acta, no por deriva.</td></tr>
+        </tbody>
+      </table>
+      <div class="mes-hito"><strong>HITO 20 DIC →</strong> GATE 1 + GATE 2 evaluados · decisión 2027 documentada en Notion.</div>
+    </div>
+
+    <!-- LÍNEA DE HITOS -->
+    <p class="section-label mt-24">Línea de hitos para seguimiento</p>
+    <div class="hitos-linea">31 JUL   Infraestructura: plataforma + verificación + firewall + one-pager Intelligence
+15 AGO   Edición HBX publicada
+31 AGO   Línea base verificados · demo Intelligence · 10 reuniones agendadas
+30 SEP   ~320 verificados · reuniones en curso · señal semanal viva · blogs fuera
+31 OCT   ~480 verificados (o contingencia) · LOI #1 · patrocinio piloto
+30 NOV   ~650 verificados · LOIs #2-3 negociando · primer evento
+20 DIC   GATE 1 + GATE 2 · decisión documentada</div>
+
+    <!-- PANEL SEMANAL -->
+    <p class="section-label mt-24">Panel semanal — los cinco números del lunes</p>
+    <p class="p">Revisión de cinco números cada lunes con José. Cinco bastan para saber cada semana si diciembre llega en verde; más de cinco es un dashboard que nadie mira.</p>
+    <div class="kpi-panel">
+      <div class="kpi"><p class="kpi-n">01</p><p class="kpi-t">Cualificados verificados acumulados</p></div>
+      <div class="kpi"><p class="kpi-n">02</p><p class="kpi-t">Tasa de apertura sostenida</p></div>
+      <div class="kpi"><p class="kpi-n">03</p><p class="kpi-t">% verificados sobre lista total</p></div>
+      <div class="kpi"><p class="kpi-n">04</p><p class="kpi-t">Reuniones Intelligence celebradas</p></div>
+      <div class="kpi"><p class="kpi-n">05</p><p class="kpi-t">LOIs en pipeline (por fase)</p></div>
+    </div>
+
+    <div class="callout mt-24">
+      <p class="section-label" style="color:rgba(255,255,255,.55);margin-bottom:8px;">La frase del semestre</p>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:16px;line-height:1.55;">Julio construye la infraestructura, agosto construye el artefacto, septiembre abre la venta, octubre audita la trayectoria, noviembre demuestra la convocatoria y diciembre decide con números. Ninguno de los seis meses es opcional y ninguno puede adelantarse al anterior: la cadena julio → septiembre es la razón de que este roadmap exista.</p>
     </div>
   </div>
 
